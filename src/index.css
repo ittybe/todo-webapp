@@ -2,6 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    font-weight: var(--weight-thin);
+}
 
 .testing {
     height: 100px;
