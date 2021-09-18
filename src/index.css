@@ -1,0 +1,11 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.testing {
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    background-color: lightcoral;
+}
