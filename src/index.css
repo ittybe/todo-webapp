@@ -10,9 +10,24 @@ body {
     font-weight: var(--weight-thin);
 }
 
-.testing {
-    height: 100px;
-    width: 100px;
-    margin: auto;
-    background-color: lightcoral;
+.page-wrapper {
+    /* delete */
+    height: 600px;
+    background-size: 430px;
+    /* preventing child top margin from shifting parent object  */
+    overflow: auto;  
+}
+
+.app-wrapper {
+    margin: 30px;
+}
+
+.header a {
+    width: 30px;
+}
+
+.header a::after {
+    content: "";
+    display: block;
+    padding-top: 100%;
 }
