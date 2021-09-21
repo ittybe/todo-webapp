@@ -1,5 +1,6 @@
 import React from "react";
 import AddTaskInput from "./AddTaskInput";
+import ChangeTasksToShow from "./ChangeTasksToShow";
 import TaskBoard from "./TaskBoard"
 let guid = () => {
     let s4 = () => {
@@ -20,20 +21,22 @@ class App extends React.Component {
     constructor (props) {
         super(props)
 
-        // {
-        //     taskBody: "lorem",
-        //     isActive: true or false
-        // }
+        
         this.state = {
             tasks: [
+            // {
+            //     taskBody: "lorem",
+            //     isActive: true or false
+            // }
             ],
+            tasksToShow: "all" // all active completed
         }
-        
         // binding for event handlers
         this.addTask = this.addTask.bind(this)
         this.markTask = this.markTask.bind(this)
         this.switchMarkTask = this.switchMarkTask.bind(this)
         this.removeTask = this.removeTask.bind(this)
+        this.setTasksToShow = this.setTasksToShow.bind(this)
     }
 
     addTask(task){
@@ -86,11 +89,43 @@ class App extends React.Component {
         }
     }
 
+    removeCompleted(){
+
+    }
+
+    tasksToRender() {
+        // here tasks sorted by 
+        // active completed and all 
+        // it returns tasks array
+        switch (this.state.tasksToShow) {
+            case "all":{
+                return this.state.tasks;
+            }
+
+            case "active":{
+                let tasks = this.state.tasks.filter((task) => task.isActive)
+                return tasks;               
+            }
+                
+            case "completed":{
+                let tasks = this.state.tasks.filter((task) => !task.isActive)
+                return tasks;
+            }
+            default:
+                return this.state.tasks
+        }
+    }
+
+    setTasksToShow (value) {
+        this.setState({tasksToShow: value})
+    }
+
     render() {
         return (
             <div>
                 <AddTaskInput parentAddTask={this.addTask}/>
-                <TaskBoard tasks={this.state.tasks.slice()} remove={this.removeTask} mark={this.switchMarkTask} />
+                <TaskBoard  tasks={this.tasksToRender()} remove={this.removeTask} mark={this.switchMarkTask} />
+                <ChangeTasksToShow set={this.setTasksToShow}/>
             </div>
         )
     }
