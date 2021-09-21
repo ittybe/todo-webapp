@@ -1,6 +1,6 @@
 import React from "react";
 import AddTaskInput from "./AddTaskInput";
-
+import TaskBoard from "./TaskBoard"
 let guid = () => {
     let s4 = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
@@ -25,11 +25,15 @@ class App extends React.Component {
         //     isActive: true or false
         // }
         this.state = {
-            tasks: Array(0),
+            tasks: [
+            ],
         }
         
         // binding for event handlers
         this.addTask = this.addTask.bind(this)
+        this.markTask = this.markTask.bind(this)
+        this.switchMarkTask = this.switchMarkTask.bind(this)
+        this.removeTask = this.removeTask.bind(this)
     }
 
     addTask(task){
@@ -50,14 +54,43 @@ class App extends React.Component {
         console.log(`tasks ${JSON.stringify(task)} added`)
     }
 
+    markTask(taskId, isActive) {
+        let tasks_ = this.state.tasks.slice()
+        let taskIndex = tasks_.findIndex(task => task.id === taskId)
+        if (taskIndex !== -1) {
+            tasks_[taskIndex].isActive = isActive;
+            this.setState({tasks: tasks_})
+            console.log(`task ${taskId} marked, isActive ${isActive}`)
+        }
+        else {
+            console.log(`task ${taskId} not marked`)
+        }
+    }
+
+    switchMarkTask(taskId) {
+        let tasks_ = this.state.tasks.slice()
+        let taskIndex = tasks_.findIndex(task => task.id === taskId)
+        this.markTask(taskId, !tasks_[taskIndex].isActive)
+    }
+
+    removeTask(taskId) {
+        let tasks_ = this.state.tasks.slice()
+        let taskIndex = tasks_.findIndex(task => task.id === taskId)
+        if (taskIndex !== -1) {
+            tasks_.splice(taskIndex, 1)
+            this.setState({tasks: tasks_})
+            console.log(`task ${taskId} removed`)
+        }
+        else {
+            console.log(`task ${taskId} not removed`)
+        }
+    }
+
     render() {
         return (
             <div>
                 <AddTaskInput parentAddTask={this.addTask}/>
-                <div> 
-
-                </div>
-                <div className="testing rounded">something something</div>
+                <TaskBoard tasks={this.state.tasks.slice()} remove={this.removeTask} mark={this.switchMarkTask} />
             </div>
         )
     }
