@@ -8,26 +8,51 @@ body {
     font-size: var(--font-size);
     font-family: var(--font-family);
     font-weight: var(--weight-thin);
+    background-color: lightcyan;
 }
 
 .page-wrapper {
-    /* delete */
-    height: 600px;
     background-size: 430px;
     /* preventing child top margin from shifting parent object  */
     overflow: auto;  
 }
 
-.app-wrapper {
-    margin: 30px;
+#root {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 500px;
 }
 
-.header a {
+.header button {
     width: 30px;
 }
 
-.header a::after {
+.header button::after {
     content: "";
     display: block;
     padding-top: 100%;
+}
+
+input {
+    position: relative;
+}
+
+input::after {
+    position: absolute;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+.task-board-light {
+    @apply rounded;
+    background-color: white;
+
+}
+/* task */
+.task-board-light>div:first-child>div {
+    @apply border-b-2 
 }

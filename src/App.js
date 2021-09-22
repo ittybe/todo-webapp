@@ -122,10 +122,16 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <AddTaskInput parentAddTask={this.addTask}/>
-                <TaskBoard  tasks={this.tasksToRender()} remove={this.removeTask} mark={this.switchMarkTask} />
-                <ChangeTasksToShow set={this.setTasksToShow}/>
+            <div className="mx-8 my-12 flex flex-col flex-grow justify-center">
+                <div class="header flex justify-between items-center">
+                    <div class="text-4xl font-bold text-white tracking-widest">TODO</div>
+                    <button class="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto"></button>
+                </div>
+                <div className="flex-grow flex flex-col my-12">
+                    <AddTaskInput parentAddTask={this.addTask}/>
+                    <TaskBoard  tasks={this.tasksToRender()} remove={this.removeTask} mark={this.switchMarkTask} />
+                    <ChangeTasksToShow set={this.setTasksToShow}/>
+                </div>
             </div>
         )
     }

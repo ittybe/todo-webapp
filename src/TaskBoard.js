@@ -4,7 +4,8 @@ import Task from "./Task";
 export default class TaskBoard extends React.Component {
     render() {
         return (
-            <div>
+            <div className="flex-grow rounded task-board-light">
+                <div>
                 {this.props.tasks.map((task, index) => {
                     return <Task 
                         key={task.id} 
@@ -14,6 +15,11 @@ export default class TaskBoard extends React.Component {
                         task = {task}
                         />
                 })}
+                </div>
+                <div>
+                    
+                </div>
+
             </div>
         ) 
     }

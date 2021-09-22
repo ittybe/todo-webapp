@@ -15,7 +15,7 @@ export default class ChangeTasksToShow extends React.Component {
 
     render() {
         return (
-            <div className="flex flex-row">
+            <div className="flex flex-row justify-center rounded">
                 <button onClick={()=> this.setAll()}>All</button>
                 <button onClick={()=> this.setActive()}>Active</button>
                 <button onClick={()=> this.setCompleted()}>Completed</button>
