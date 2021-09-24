@@ -4,7 +4,7 @@ import Task from "./Task";
 export default class TaskBoard extends React.Component {
     render() {
         return (
-            <div className="flex-grow rounded task-board-light">
+            <div className="flex-grow rounded bg-gray">
                 <div>
                 {this.props.tasks.map((task, index) => {
                     return <Task 

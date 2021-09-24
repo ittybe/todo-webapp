@@ -47,12 +47,15 @@ input:focus {
     outline: none;
 }
 
-.task-board-light {
-    @apply rounded;
-    background-color: white;
-
+.icon {
+    @apply bg-center bg-no-repeat;
+    width: 25px;
+    background-size: 100%;
 }
-/* task */
-.task-board-light>div:first-child>div {
-    @apply border-b-2 
+
+
+.icon::after{
+    content: "";
+    display: block;
+    padding-top: 100%;
 }

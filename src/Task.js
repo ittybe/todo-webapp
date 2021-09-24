@@ -12,9 +12,23 @@ export default class Task extends React.Component {
     render() {
         return (
             <div className="flex flex-row">
-                <button onClick={() => this.markTask()} className="p-4 text-4xl">V</button>
-                <button onClick={() => this.markTask()} >{this.props.task.taskBody}</button>
-                <button onClick={() => this.removeTask()} className="p-4 text-4xl">X</button>
+                <button onClick={() => this.markTask()} className={
+                 `
+                 m-4 
+                 p-2 
+                 rounded-full 
+                 border 
+                 border-l-dark-grayish-blue 
+                 hover:border-primary-bright-blue 
+                 ` + (this.props.task.isActive ? "  " : " bg-primary-check-background ")   
+                }
+                >
+                    <div className={" icon  " + (this.props.task.isActive? "bg-icon-check": "block")}></div>
+                </button>
+                <button onClick={() => this.markTask()} className="flex-grow">{this.props.task.taskBody}</button>
+                <button onClick={() => this.removeTask()} className="p-4">
+                    <div className="icon bg-icon-cross"></div>
+                </button>
             </div>
         ) 
     }
