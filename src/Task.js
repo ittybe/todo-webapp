@@ -11,7 +11,7 @@ export default class Task extends React.Component {
 
     render() {
         return (
-            <div className="flex flex-row">
+            <div className="flex flex-row items-start">
                 <button onClick={() => this.markTask()} className={
                  `
                  m-4 
@@ -23,10 +23,10 @@ export default class Task extends React.Component {
                  ` + (this.props.task.isActive ? "  " : " bg-primary-check-background ")   
                 }
                 >
-                    <div className={" icon  " + (this.props.task.isActive? "bg-icon-check": "block")}></div>
+                    <div className={" icon  " + (this.props.task.isActive? "": "bg-icon-check")}></div>
                 </button>
-                <button onClick={() => this.markTask()} className="flex-grow">{this.props.task.taskBody}</button>
-                <button onClick={() => this.removeTask()} className="p-4">
+                <button onClick={() => this.markTask()} className="flex-grow text-left self-center">{this.props.task.taskBody}</button>
+                <button onClick={() => this.removeTask()} className="m-4 p-2">
                     <div className="icon bg-icon-cross"></div>
                 </button>
             </div>
