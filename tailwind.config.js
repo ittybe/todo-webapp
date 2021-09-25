@@ -21,7 +21,8 @@ module.exports = {
         "dark-grayish-blue":"var(--d-dark-grayish-blue)",
         "very-dark-grayish-blue":"var(--d-very-dark-grayish-blue)",
         "very-very-dark-grayish-blue":"var(--d-very-very-dark-grayish-blue)",
-      }
+      },
+      white: "white"
     },
     extend: {
       backgroundImage: {
@@ -39,7 +40,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundImage: ["dark"]
+      backgroundImage: ["dark", "hover"]
     },
   },
   plugins: [],

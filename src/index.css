@@ -49,7 +49,7 @@ input:focus {
 
 .icon {
     @apply bg-center bg-no-repeat;
-    width: 25px;
+    width: 15px;
     background-size: 100%;
 }
 
@@ -60,30 +60,34 @@ input:focus {
     padding-top: 100%;
 }
 
+
 /* .icon-wrapper {
     max-height: 25px;
 } */
 
+
+
+
+/* 
+gradient border pseudo element
+*/
+/* 
+
+this is not ok, we need to change border depending on our state 
+pseudo elements cant be readed or changed through js
 .check * {
     position: relative;
     z-index: 10;
 }
-
-
-/* 
-gradient border 
-*/
 .check {
     @apply rounded-full m-4 p-2;
-    display: flex;
-    align-items: center;
     
     box-sizing: border-box;
     position: relative;
-    background-clip: padding-box; /* !important */
-    border: solid var(--check-border) transparent; /* !important */
-    background-color: white;
+    background-clip: padding-box; !important
+    border: solid var(--check-border) transparent; !important 
 }
+
 .check::before{
     content: '';
     position: absolute;
@@ -91,6 +95,20 @@ gradient border
     z-index: -1;
     margin: var(--check-border-neg); 
     border-radius: inherit;
-    background: var(--primary-check-background);
+    /* color of border 
+    background: var(--d-dark-grayish-blue);
+} */
 
+
+/* 
+gradient border wrapper 
+*/
+.check {
+    @apply rounded-full p-px flex justify-center items-center m-4;
+    position: relative;
+    padding: 1px;
+}
+
+.check>button{
+    @apply rounded-full p-2;
 }
