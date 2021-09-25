@@ -13,14 +13,9 @@ export default class Task extends React.Component {
         return (
             <div className="flex flex-row items-start">
                 <button onClick={() => this.markTask()} className={
-                 `
-                 m-4 
-                 p-2 
-                 rounded-full 
-                 border 
-                 border-l-dark-grayish-blue 
-                 hover:border-primary-bright-blue 
-                 ` + (this.props.task.isActive ? "  " : " bg-primary-check-background ")   
+                `
+                check
+                ` + (this.props.task.isActive ? "  " : " bg-check-gradient ")   
                 }
                 >
                     <div className={" icon  " + (this.props.task.isActive? "": "bg-icon-check")}></div>

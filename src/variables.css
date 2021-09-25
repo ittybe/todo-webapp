@@ -1,7 +1,7 @@
 :root {
     /* primary */
     --primary-bright-blue: hsl(220, 98%, 61%);
-    --primary-check-background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --primary-check-background: linear-gradient(-65deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
     
     /* neutral light*/
     --l-light-gray: hsl(0, 0%, 98%);
@@ -24,4 +24,8 @@
     --font-family: 'Josefin Sans', sans-serif;
     --weight-thin: 400;
     --weight-bold: 700;
+
+    /* check border thickness */
+    --check-border: 1px;
+    --check-border-neg: -1px;
 }

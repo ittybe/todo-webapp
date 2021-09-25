@@ -5,7 +5,6 @@ module.exports = {
     colors: {
       primary: {
         blue: "var(--primary-bright-blue)",
-        "check-background": "var(--primary-check-background)"
       },
       l: {
         "light-gray": "var(--l-light-gray)",
@@ -26,6 +25,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
+        'check-gradient': "var(--primary-check-background)",
         'img-light-mb': "url('./assets/bg-mobile-light.jpg')",
         'img-dark-mb': "url('./assets/bg-mobile-dark.jpg')",
         'img-light-desk': "url('./assets/bg-desktop-light.jpg')",

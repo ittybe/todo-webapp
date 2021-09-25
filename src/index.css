@@ -63,3 +63,34 @@ input:focus {
 /* .icon-wrapper {
     max-height: 25px;
 } */
+
+.check * {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* 
+gradient border 
+*/
+.check {
+    @apply rounded-full m-4 p-2;
+    display: flex;
+    align-items: center;
+    
+    box-sizing: border-box;
+    position: relative;
+    background-clip: padding-box; /* !important */
+    border: solid var(--check-border) transparent; /* !important */
+    background-color: white;
+}
+.check::before{
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: var(--check-border-neg); 
+    border-radius: inherit;
+    background: var(--primary-check-background);
+
+}
