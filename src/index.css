@@ -103,12 +103,24 @@ pseudo elements cant be readed or changed through js
 /* 
 gradient border wrapper 
 */
+.task {
+    @apply flex flex-row items-start;
+}
+
+.task:hover .cross>.icon{
+    @apply bg-icon-cross;
+}
+
+.cross {
+    @apply m-4 p-1;
+}
+
 .check {
-    @apply rounded-full p-px flex justify-center items-center m-4;
+    @apply rounded-full p-px flex justify-center items-center m-4 hover:bg-check-gradient;
     position: relative;
     padding: 1px;
 }
 
 .check>button{
-    @apply rounded-full p-2;
+    @apply rounded-full p-1 bg-white;
 }
