@@ -11,12 +11,12 @@ export default class Task extends React.Component {
 
     render() {
         return (
-            <div className="task">
+            <div className="task dark:d-task">
                 <div className={
                     `
                     check
                     dark:d-check
-                    ` + (this.props.task.isActive ? "bg-l-dark-grayish-blue " : " bg-check-gradient ")
+                    ` + (this.props.task.isActive ? " bg-l-light-grayish-blue  " : " bg-check-gradient ")
                 }
                 >
                     <button onClick={() => this.markTask()} className={
@@ -27,9 +27,13 @@ export default class Task extends React.Component {
                     </button>
                 </div>
                
-                <button onClick={() => this.markTask()} className="flex-grow text-left self-center">{this.props.task.taskBody}</button>
+                <button onClick={() => this.markTask()} className={
+                    `
+                    task-body 
+                    ` + (this.props.task.isActive? "" : " text-l-light-grayish-blue line-through ")
+                }>{this.props.task.taskBody}</button>
                 <button onClick={() => this.removeTask()} className="cross ">
-                    <div className="icon"></div>
+                    <div className="icon bg-icon-cross sm:bg-none"></div>
                 </button>
             </div>
         ) 

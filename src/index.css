@@ -8,7 +8,6 @@ body {
     font-size: var(--font-size);
     font-family: var(--font-family);
     font-weight: var(--weight-thin);
-    background-color: lightcyan;
 }
 
 .page-wrapper {
@@ -103,8 +102,9 @@ pseudo elements cant be readed or changed through js
 /* 
 gradient border wrapper 
 */
+
 .task {
-    @apply flex flex-row items-start;
+    @apply flex flex-row items-start p-4 border-b border-l-light-grayish-blue;
 }
 
 .task:hover .cross>.icon{
@@ -112,15 +112,18 @@ gradient border wrapper
 }
 
 .cross {
-    @apply m-4 p-1;
+    @apply p-1;
 }
 
 .check {
-    @apply rounded-full p-px flex justify-center items-center m-4 hover:bg-check-gradient;
+    @apply rounded-full p-px flex justify-center items-center hover:bg-check-gradient;
     position: relative;
-    padding: 1px;
 }
 
 .check>button{
     @apply rounded-full p-1 bg-white;
+}
+
+.task-body {
+    @apply flex-grow text-left self-center mx-4;
 }

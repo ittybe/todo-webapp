@@ -34,7 +34,8 @@ module.exports = {
         "moon-sign": "url('./assets/icon-moon.svg')",
         "sun-sign": "url('./assets/icon-sun.svg')",
         "icon-cross": "url('./assets/icon-cross.svg')",
-        "icon-check": "url('./assets/icon-check.svg')"
+        "icon-check": "url('./assets/icon-check.svg')",
+        "none": "none",
       }
     },
   },

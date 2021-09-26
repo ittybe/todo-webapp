@@ -4,7 +4,7 @@ import Task from "./Task";
 export default class TaskBoard extends React.Component {
     render() {
         return (
-            <div className="flex-grow rounded bg-gray">
+            <div className="flex-grow rounded bg-white shadow-2xl my-6">
                 <div>
                 {this.props.tasks.map((task, index) => {
                     return <Task 
@@ -17,7 +17,9 @@ export default class TaskBoard extends React.Component {
                 })}
                 </div>
                 <div>
-                    
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
 
             </div>
