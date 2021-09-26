@@ -1,7 +1,7 @@
 import React from "react";
 import AddTaskInput from "./AddTaskInput";
-import ChangeTasksToShow from "./ChangeTasksToShow";
 import TaskBoard from "./TaskBoard"
+
 let guid = () => {
     let s4 = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
@@ -37,6 +37,7 @@ class App extends React.Component {
         this.switchMarkTask = this.switchMarkTask.bind(this)
         this.removeTask = this.removeTask.bind(this)
         this.setTasksToShow = this.setTasksToShow.bind(this)
+        this.clearAllCompleted = this.clearAllCompleted.bind(this)
     }
 
     addTask(task){
@@ -120,6 +121,12 @@ class App extends React.Component {
         this.setState({tasksToShow: value})
     }
 
+    clearAllCompleted () {
+        let _tasks = this.state.tasks;
+        let _allActiveTasks = _tasks.filter((task) => task.isActive);
+        
+        this.setState({tasks: _allActiveTasks})
+    }
     render() {
         return (
             <div className="mx-8 my-12 flex flex-col flex-grow justify-center">
@@ -129,8 +136,7 @@ class App extends React.Component {
                 </div>
                 <div className="flex-grow flex flex-col my-12">
                     <AddTaskInput parentAddTask={this.addTask}/>
-                    <TaskBoard  tasks={this.tasksToRender()} remove={this.removeTask} mark={this.switchMarkTask} />
-                    <ChangeTasksToShow set={this.setTasksToShow}/>
+                    <TaskBoard  tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
                 </div>
             </div>
         )

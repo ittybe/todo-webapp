@@ -19,8 +19,6 @@ body {
 #root {
     display: flex;
     flex-direction: column;
-
-    min-height: 500px;
 }
 
 .header button {
@@ -139,5 +137,5 @@ gradient border wrapper
 }
 
 .change-tasks>button:hover {
-    color: var(--primary-bright-blue)
+    color: var(--l-very-dark-grayish-blue)
 }
