@@ -124,7 +124,7 @@ class App extends React.Component {
         return (
             <div className="mx-8 my-12 flex flex-col flex-grow justify-center">
                 <div class="header flex justify-between items-center">
-                    <div class="text-4xl font-bold text-white tracking-widest">TODO</div>
+                    <div class="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
                     <button class="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto"></button>
                 </div>
                 <div className="flex-grow flex flex-col my-12">

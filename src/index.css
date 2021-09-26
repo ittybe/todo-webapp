@@ -127,3 +127,17 @@ gradient border wrapper
 .task-body {
     @apply flex-grow text-left self-center mx-4;
 }
+
+.change-tasks{ 
+    @apply flex flex-row justify-center rounded bg-white p-2 shadow-2xl sm:shadow-none;
+
+}
+
+.change-tasks>button {
+    @apply m-2;
+
+}
+
+.change-tasks>button:hover {
+    color: var(--primary-bright-blue)
+}
