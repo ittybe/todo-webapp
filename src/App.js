@@ -127,6 +127,14 @@ class App extends React.Component {
         
         this.setState({tasks: _allActiveTasks})
     }
+
+    getQuantityOnlyActive() {
+        let _tasks = this.state.tasks;
+        let _allActiveTasks = _tasks.filter((task) => task.isActive);
+
+        return _allActiveTasks.length; 
+    }
+
     render() {
         return (
             <div className="mx-8 my-12 flex flex-col flex-grow justify-center">
@@ -136,7 +144,7 @@ class App extends React.Component {
                 </div>
                 <div className="flex-grow flex flex-col my-12">
                     <AddTaskInput parentAddTask={this.addTask}/>
-                    <TaskBoard  tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
+                    <TaskBoard quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
                 </div>
             </div>
         )

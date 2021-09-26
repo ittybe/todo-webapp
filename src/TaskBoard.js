@@ -19,7 +19,7 @@ export default class TaskBoard extends React.Component {
                     })}
                     </div>
                     <div className="flex flex-row p-4 text-l-dark-grayish-blue">
-                        <div>{this.props.tasks.length} items left</div>
+                        <div>{this.props.quantityOnlyActive} items left</div>
                         <div className="flex-grow m-2"></div>
                         <button onClick={this.props.clearAllCompleted} className="hover:text-l-very-dark-grayish-blue">Clear completed</button>
                     </div>  
