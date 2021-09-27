@@ -29,7 +29,8 @@ class App extends React.Component {
             //     isActive: true or false
             // }
             ],
-            tasksToShow: "all" // all active completed
+            tasksToShow: "all", // all active completed
+            isLightTheme: true
         }
         // binding for event handlers
         this.addTask = this.addTask.bind(this)
@@ -135,16 +136,33 @@ class App extends React.Component {
         return _allActiveTasks.length; 
     }
 
+    changeTheme(){
+        let isLightTheme = this.state.isLightTheme
+        this.setState({isLightTheme: !isLightTheme})
+        // change document bg with pure js 
+        if (this.state.isLightTheme){
+            document.body.style.backgroundColor = "var(--d-very-dark-blue)"
+        }
+        else {
+            document.body.style.backgroundColor = "white"
+        }
+
+    }
+
     render() {
         return (
-            <div className="mx-8 my-12 flex flex-col flex-grow justify-center">
-                <div class="header flex justify-between items-center">
-                    <div class="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
-                    <button class="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto"></button>
-                </div>
-                <div className="flex-grow flex flex-col my-12">
-                    <AddTaskInput parentAddTask={this.addTask}/>
-                    <TaskBoard quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
+            <div className={(this.state.isLightTheme? "" : " dark")}>
+                <div className={`bg-img-light-mb dark:bg-img-dark-mb bg-top bg-no-repeat bg-contain overflow-auto`}>
+                    <div className={`mx-8 my-12 flex flex-col flex-grow justify-center`}>
+                        <div class="header flex justify-between items-center">
+                            <div class="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
+                            <button class="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto" onClick={()=>this.changeTheme()}></button>
+                        </div>
+                        <div className="flex-grow flex flex-col my-12 dark:text-d-light-grayish-blue">
+                            <AddTaskInput parentAddTask={this.addTask}/>
+                            <TaskBoard quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
+                        </div>
+                    </div>
                 </div>
             </div>
         )

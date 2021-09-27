@@ -10,10 +10,10 @@ body {
     font-weight: var(--weight-thin);
 }
 
-.page-wrapper {
-    background-size: 430px;
+ .page-wrapper {
+    /* background-size: 430px; */
     /* preventing child top margin from shifting parent object  */
-    overflow: auto;  
+    /* overflow: auto;   */
 }
 
 #root {
@@ -83,7 +83,7 @@ pseudo elements cant be readed or changed through js
 gradient border wrapper 
 */
 .task {
-    @apply flex flex-row items-start p-4 border-b border-l-light-grayish-blue;
+    @apply flex flex-row items-start p-4 border-b;
 }
 
 .task:hover .cross>.icon{
@@ -100,14 +100,14 @@ gradient border wrapper
 }
 
 .check>button{
-    @apply rounded-full p-1 bg-white;
+    @apply rounded-full p-1;
 }
 
 .task-body {
     @apply flex-grow text-left self-center mx-4;
 }
 
-.change-tasks{ 
+/* .change-tasks{ 
     @apply flex flex-row justify-center rounded bg-white p-2 shadow-2xl sm:shadow-none;
 
 }
@@ -119,12 +119,12 @@ gradient border wrapper
 
 .change-tasks>button:hover {
     color: var(--l-very-dark-grayish-blue)
-}
+} */
 
 
 .add-task-form {
     @apply w-full rounded p-4 relative flex flex-row;
-    background-color: white;
+    
 }
 
 .add-task-form>div {
