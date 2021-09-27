@@ -17,9 +17,10 @@ export default class AddTaskInput extends React.Component {
     render(){
         return (
             <div>
-                <form onSubmit={this.onTrigger} autoComplete="off" className="w-full"> 
+                <form onSubmit={this.onTrigger} autoComplete="off" className="add-task-form"> 
+                    <div className="border-l-light-grayish-blue"></div>
                     <input type = "text" name="task" placeholder="Create a new todo..." 
-                            className="w-full rounded pl-12 py-2 pr-2"/>
+                            className="add-task-input"/>
                     {/* <input type = "submit" value = "Submit"/> */}
                 </form>
             </div>

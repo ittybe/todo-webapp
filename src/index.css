@@ -31,15 +31,6 @@ body {
     padding-top: 100%;
 }
 
-input {
-    position: relative;
-}
-
-input::after {
-    position: absolute;
-
-}
-
 input:focus {
     outline: none;
 }
@@ -56,14 +47,6 @@ input:focus {
     display: block;
     padding-top: 100%;
 }
-
-
-/* .icon-wrapper {
-    max-height: 25px;
-} */
-
-
-
 
 /* 
 gradient border pseudo element
@@ -96,11 +79,9 @@ pseudo elements cant be readed or changed through js
     background: var(--d-dark-grayish-blue);
 } */
 
-
 /* 
 gradient border wrapper 
 */
-
 .task {
     @apply flex flex-row items-start p-4 border-b border-l-light-grayish-blue;
 }
@@ -138,4 +119,24 @@ gradient border wrapper
 
 .change-tasks>button:hover {
     color: var(--l-very-dark-grayish-blue)
+}
+
+
+.add-task-form {
+    @apply w-full rounded p-4 relative flex flex-row;
+    background-color: white;
+}
+
+.add-task-form>div {
+    @apply border rounded-full mr-4 flex;
+    /* for some reason only this combination will make perfect circle 25x25 */
+    min-width: 25px;
+    /* min-height: 25px; */
+    max-height: 25px;
+    /* max-width: 25px; */
+}
+
+.add-task-input {
+    @apply w-full;    
+    caret-color: var(--primary-bright-blue);
 }

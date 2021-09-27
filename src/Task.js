@@ -25,8 +25,7 @@ export default class Task extends React.Component {
                     >
                         <div className={"icon  " + (this.props.task.isActive? "": "bg-icon-check")}></div>
                     </button>
-                </div>
-               
+                </div> 
                 <button onClick={() => this.markTask()} className={
                     `
                     task-body 
