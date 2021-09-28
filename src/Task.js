@@ -10,8 +10,15 @@ export default class Task extends React.Component {
     }
 
     render() {
+        // drag and drop 
+        // const {provided, innerRef} = this.props
         return (
-            <div className="task border-l-light-grayish-blue dark:border-d-very-very-dark-grayish-blue">
+            <div
+                {...this.props.provided.draggableProps}
+                {...this.props.provided.dragHandleProps}
+                ref={this.props.innerRef}
+                className="task border-l-light-grayish-blue dark:border-d-very-very-dark-grayish-blue"
+                >
                 <div className={
                     `
                     check
