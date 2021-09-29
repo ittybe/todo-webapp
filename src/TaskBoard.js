@@ -8,7 +8,7 @@ export default class TaskBoard extends React.Component {
         return (
             <div>
                 <div className="flex-grow rounded bg-white dark:bg-d-very-dark-desaturated-blue shadow-2xl my-6">
-                    <DragDropContext onDragEnd={() => { }}>
+                    <DragDropContext onDragEnd={(result) => { this.props.handleOnDragEnd(result, this.props.tasks) }}>
                         <Droppable droppableId="tasks">
                             {(provided, snapshot) => {
                                 return (<div ref={provided.innerRef} {...provided.droppableProps} >

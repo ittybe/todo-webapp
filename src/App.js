@@ -39,6 +39,7 @@ class App extends React.Component {
         this.removeTask = this.removeTask.bind(this)
         this.setTasksToShow = this.setTasksToShow.bind(this)
         this.clearAllCompleted = this.clearAllCompleted.bind(this)
+        this.handleOnDragEnd = this.handleOnDragEnd.bind(this)
     }
 
     addTask(task){
@@ -149,6 +150,38 @@ class App extends React.Component {
 
     }
 
+    handleOnDragEnd(result, propsTasks) {
+        if (!result.destination) return;
+        console.log(`in handleOnDragEnd`)
+        const tasksGlobal = Array.from(this.state.tasks)
+        const tasks = Array.from(propsTasks);
+        const [reorderedTask] = tasks.splice(result.source.index, 1);
+        tasks.splice(result.destination.index, 0, reorderedTask);
+
+        // if not last elem
+        if (result.source.index !== tasks.length - 1) {
+            // get previous task by decreasing destination index
+            let previousTask = tasks[result.destination.index - 1];            
+            // then cut out reordered task in main task array 
+            let index = tasksGlobal.indexOf(reorderedTask)
+            tasksGlobal.splice(index, 1)
+            // and paste reordered task right after previous task
+            let indexPrev = tasksGlobal.indexOf(previousTask)
+            tasksGlobal.splice(indexPrev+1, 0, reorderedTask)
+        }
+        else {
+            // get next task by increasing destination index
+            let nextTask = tasks[result.destination.index + 1]
+            // then cut out reordered task in main task array 
+            let index = tasksGlobal.indexOf(reorderedTask)
+            tasksGlobal.splice(index, 1)
+            // and paste reordered task right before next task  
+            let indexNext = tasksGlobal.indexOf(nextTask)
+            tasksGlobal.splice(indexNext, 0, reorderedTask)
+        }
+        this.setState({tasks: tasksGlobal})
+    }
+
     render() {
         return (
             <div className={(this.state.isLightTheme? "" : " dark")}>
@@ -160,7 +193,7 @@ class App extends React.Component {
                         </div>
                         <div className="flex-grow flex flex-col my-12 dark:text-d-light-grayish-blue">
                             <AddTaskInput parentAddTask={this.addTask}/>
-                            <TaskBoard quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
+                            <TaskBoard handleOnDragEnd={this.handleOnDragEnd} quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
                         </div>
                     </div>
                 </div>
