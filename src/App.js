@@ -154,9 +154,9 @@ class App extends React.Component {
             <div className={(this.state.isLightTheme? "" : " dark")}>
                 <div className={`bg-img-light-mb dark:bg-img-dark-mb bg-top bg-no-repeat bg-contain overflow-auto`}>
                     <div className={`mx-8 my-12 flex flex-col flex-grow justify-center`}>
-                        <div class="header flex justify-between items-center">
-                            <div class="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
-                            <button class="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto" onClick={()=>this.changeTheme()}></button>
+                        <div className="header flex justify-between items-center">
+                            <div className="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
+                            <button className="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto" onClick={()=>this.changeTheme()}></button>
                         </div>
                         <div className="flex-grow flex flex-col my-12 dark:text-d-light-grayish-blue">
                             <AddTaskInput parentAddTask={this.addTask}/>
