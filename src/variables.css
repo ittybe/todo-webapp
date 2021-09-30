@@ -28,4 +28,7 @@
     /* check border thickness */
     --check-border: 1px;
     --check-border-neg: -1px;
+
+    --icon-width-height: 15px;
+    --icon-width-height-input: 25px;
 }

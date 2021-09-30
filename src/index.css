@@ -42,7 +42,7 @@ input:focus {
 
 .icon {
     @apply bg-center bg-no-repeat;
-    width: 15px;
+    width: var(--icon-width-height);
     background-size: 100%;
 }
 
@@ -135,9 +135,11 @@ gradient border wrapper
 .add-task-form>div {
     @apply border rounded-full mr-4 flex;
     /* for some reason only this combination will make perfect circle 25x25 */
-    min-width: 25px;
+    min-width: var(--icon-width-height-input);
+    max-width: var(--icon-width-height-input);
     /* min-height: 25px; */
-    max-height: 25px;
+    max-height: var(--icon-width-height-input);
+    min-height: var(--icon-width-height-input);
     /* max-width: 25px; */
 }
 
