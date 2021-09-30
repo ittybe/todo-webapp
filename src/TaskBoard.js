@@ -4,11 +4,18 @@ import ChangeTasksToShow from "./ChangeTasksToShow";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export default class TaskBoard extends React.Component {
+    onDragStart() {
+        // good times
+        if (window.navigator.vibrate) {
+            window.navigator.vibrate(100);
+        }
+    }
+
     render() {
         return (
             <div>
                 <div className="flex-grow rounded bg-white dark:bg-d-very-dark-desaturated-blue shadow-2xl my-6">
-                    <DragDropContext onDragEnd={(result) => { this.props.handleOnDragEnd(result, this.props.tasks) }}>
+                    <DragDropContext onDragEnd={(result) => { this.props.handleOnDragEnd(result, this.props.tasks) }} onDragStart={()=>this.onDragStart()}>
                         <Droppable droppableId="tasks">
                             {(provided, snapshot) => {
                                 return (<div ref={provided.innerRef} {...provided.droppableProps} >
