@@ -36,13 +36,15 @@ export default class TaskBoard extends React.Component {
                             
                         </Droppable>
                     </DragDropContext>
-                    <div className="flex flex-row p-4 text-l-dark-grayish-blue dark:text-d-very-dark-grayish-blue">
+                    <div className="flex flex-row p-4 sm:py-2 justify-between items-center text-l-dark-grayish-blue dark:text-d-very-dark-grayish-blue">
                         <div>{this.props.quantityOnlyActive} items left</div>
-                        <div className="flex-grow m-2"></div>
+                        <div className="hidden sm:block"><ChangeTasksToShow tasksToShow={this.props.tasksToShow} setTasksToShow={this.props.setTasksToShow} /></div>
                         <button onClick={this.props.clearAllCompleted} className="hover:text-l-very-dark-grayish-blue dark:hover:text-d-light-grayish-blue-hover">Clear completed</button>
                     </div>
                 </div>
-                <ChangeTasksToShow tasksToShow={this.props.tasksToShow} setTasksToShow={this.props.setTasksToShow} />
+                <div className="sm:hidden">
+                    <ChangeTasksToShow tasksToShow={this.props.tasksToShow} setTasksToShow={this.props.setTasksToShow} />
+                </div>
             </div>
 
         )

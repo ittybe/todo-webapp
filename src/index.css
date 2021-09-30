@@ -8,9 +8,14 @@ body {
     font-size: var(--font-size);
     font-family: var(--font-family);
     font-weight: var(--weight-thin);
+    background-color: var(--l-light-gray);
 }
 
- .page-wrapper {
+
+.main-bg {
+    background-size: 100% 250px;
+}
+.page-wrapper {
     /* background-size: 430px; */
     /* preventing child top margin from shifting parent object  */
     /* overflow: auto;   */

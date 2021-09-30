@@ -145,7 +145,7 @@ class App extends React.Component {
             document.body.style.backgroundColor = "var(--d-very-dark-blue)"
         }
         else {
-            document.body.style.backgroundColor = "white"
+            document.body.style.backgroundColor = "var(--l-light-gray)"
         }
 
     }
@@ -185,8 +185,8 @@ class App extends React.Component {
     render() {
         return (
             <div className={(this.state.isLightTheme? "" : " dark")}>
-                <div className={`bg-img-light-mb dark:bg-img-dark-mb bg-top bg-no-repeat bg-contain overflow-auto`}>
-                    <div className={`mx-8 my-12 flex flex-col flex-grow justify-center`}>
+                <div className={`main-bg bg-img-light-mb sm:bg-img-light-desk dark:bg-img-dark-mb sm:dark:bg-img-dark-desk bg-top bg-no-repeat bg-contain overflow-auto`}>
+                    <div className={`mx-8 my-12 sm:m-auto sm:my-12 flex flex-col flex-grow justify-center max-w-xl`}>
                         <div className="header flex justify-between items-center">
                             <div className="text-4xl font-bold text-white tracking-widest text-center">TODO</div>
                             <button className="bg-moon-sign dark:bg-sun-sign bg-no-repeat bg-auto" onClick={()=>this.changeTheme()}></button>
@@ -194,6 +194,7 @@ class App extends React.Component {
                         <div className="flex-grow flex flex-col my-12 dark:text-d-light-grayish-blue">
                             <AddTaskInput parentAddTask={this.addTask}/>
                             <TaskBoard handleOnDragEnd={this.handleOnDragEnd} quantityOnlyActive={this.getQuantityOnlyActive()} tasks={this.tasksToRender()} tasksToShow={this.state.tasksToShow} setTasksToShow={this.setTasksToShow} clearAllCompleted={this.clearAllCompleted} remove={this.removeTask} mark={this.switchMarkTask} />
+                            <div className="flex justify-center my-12 items-center text-l-dark-grayish-blue dark:text-d-very-dark-grayish-blue">Drag and drop to reorder list</div>
                         </div>
                     </div>
                 </div>

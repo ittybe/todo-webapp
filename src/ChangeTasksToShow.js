@@ -19,7 +19,7 @@ export default class ChangeTasksToShow extends React.Component {
 
     render() {
         return (
-            <div className="change-tasks flex flex-row justify-center rounded bg-white dark:bg-d-very-dark-desaturated-blue p-2 shadow-2xl sm:shadow-none ">
+            <div className="change-tasks flex flex-row justify-center rounded bg-white dark:bg-d-very-dark-desaturated-blue shadow-2xl sm:shadow-none p-2 sm:p-0 ">
                 <button onClick={()=> this.setAll()} className={`m-2 hover:text-l-very-dark-grayish-blue dark:hover:text-d-light-grayish-blue-hover` + this.textColor("all")}>All</button>
                 <button onClick={()=> this.setActive()} className={`m-2 hover:text-l-very-dark-grayish-blue dark:hover:text-d-light-grayish-blue-hover` + this.textColor("active")}>Active</button>
                 <button onClick={()=> this.setCompleted()} className={`m-2 hover:text-l-very-dark-grayish-blue dark:hover:text-d-light-grayish-blue-hover` + this.textColor("completed")}>Completed</button>
