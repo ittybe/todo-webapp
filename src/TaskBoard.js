@@ -7,7 +7,7 @@ export default class TaskBoard extends React.Component {
     onDragStart() {
         // good times
         if (window.navigator.vibrate) {
-            window.navigator.vibrate(100);
+            window.navigator.vibrate(25);
         }
     }
 
