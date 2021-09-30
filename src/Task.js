@@ -33,11 +33,11 @@ export default class Task extends React.Component {
                         <div className={"icon  " + (this.props.task.isActive? "": "bg-icon-check")}></div>
                     </button>
                 </div> 
-                <button onClick={() => this.markTask()} className={
+                <div className={
                     `
                     task-body 
-                    ` + (this.props.task.isActive? "" : " text-l-light-grayish-blue dark:text-d-very-dark-grayish-blue line-through ")
-                }>{this.props.task.taskBody}</button>
+                    ` 
+                }><button className={(this.props.task.isActive? "" : " text-l-light-grayish-blue dark:text-d-very-dark-grayish-blue line-through ")} onClick={() => this.markTask()}>{this.props.task.taskBody}</button></div>
                 <button onClick={() => this.removeTask()} className="cross ">
                     <div className="icon bg-icon-cross sm:bg-none"></div>
                 </button>
